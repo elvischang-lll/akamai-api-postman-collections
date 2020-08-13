@@ -15,3 +15,6 @@ Instructions:
 - Click on the Eye icon and click Edit,
 - Add your Akamai API credentials (host, access_token, client_token, client_secret),
 - You can now run the requests.
+
+Instructions in video:
+https://youtu.be/NtJ_ZdN0T7I
