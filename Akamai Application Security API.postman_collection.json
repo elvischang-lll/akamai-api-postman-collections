@@ -1,0 +1,3364 @@
+{
+	"info": {
+		"_postman_id": "1151d9f8-d93c-42ea-9ff0-92b279ffbbd5",
+		"name": "Akamai Application Security API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Security Configurations",
+			"item": [
+				{
+					"name": "List configurations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7364813-bf1e-4ba4-b5b6-79a471df0a2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "05900580-0a7c-4919-b76a-777f1d5dc34c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List configuration versions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "542ec7e4-97aa-496b-b5a7-1ebc4395b5b9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "detail",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clone a configuration version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ba19a760-4972-4db7-8e98-77934a948b09",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"createFromVersion\": {{versionNumber}},\n    \"ruleUpdate\": false\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "detail",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get configuration version details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e0fb9137-188a-486f-996a-70efdadad091",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export a configuration version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4a7564b5-dd99-46a2-a51b-3041f7e3475b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/export/configs/{{configId}}/versions/{{versionNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"export",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Hostnames",
+			"item": [
+				{
+					"name": "List selectable hostnames",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a73b21b3-5cfe-4ab1-8ebf-1ce97dd346ef",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/selectable-hostnames",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"selectable-hostnames"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List selected hostnames",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37fc26a4-ec77-4e7f-afa3-a1339ed81297",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/selected-hostnames",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"selected-hostnames"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify selected hostnames",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "21fb3745-8837-437f-9736-692402ad324b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"hostnameList\": [\n        {\n            \"hostname\": \"*.example.net\"\n        },\n        {\n            \"hostname\": \"example.com\"\n        },\n        {\n            \"hostname\": \"m.example.com\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/selected-hostnames",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"selected-hostnames"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Security Policies",
+			"item": [
+				{
+					"name": "List security policies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13a88abc-48e8-4244-8228-e9a5a107602e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies"
+							],
+							"query": [
+								{
+									"key": "notMatched",
+									"value": null,
+									"description": "notMatched\tBoolean\tfalse\tIf true, returns all security policies in the configuration version which don't have a match target. If false, returns all security policies in the configuration version.",
+									"disabled": true
+								},
+								{
+									"key": "detail",
+									"value": null,
+									"description": "detail\tBoolean\ttrue\tWhen enabled, the response features a richer set of data than the default, which includes only the name and ID of each item.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clone a security policy | NOT WORKING",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "916b2239-bb67-471d-aa43-dc59b8ba1f15",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"createFromSecurityPolicy\": \"{{policyId}}\",\n    \"policyName\": \"{{policyName}}\",\n    \"policyPrefix\": \"{{policyPrefix}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Match Targets",
+			"item": [
+				{
+					"name": "List match targets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "069a2072-2504-4164-97f4-691dbc46ec5c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets"
+							],
+							"query": [
+								{
+									"key": "policyId",
+									"value": null,
+									"description": "policyId\tString\tancv_1234\tSpecifies the security policy to filter match targets.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a match target | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "062d1e62-80cd-47bc-8772-5a781bbf23ec",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"website\",\n  \"bypassNetworkLists\": [\n    {\n      \"id\": \"80865_SECURITYBYPASSLIST\",\n      \"name\": \"Security Bypass List\"\n    }\n  ],\n  \"configId\": 59595,\n  \"configVersion\": 1,\n  \"defaultFile\": \"NO_MATCH\",\n  \"effectiveSecurityControls\": {\n    \"applyApplicationLayerControls\": true,\n    \"applyNetworkLayerControls\": true,\n    \"applyRateControls\": true,\n    \"applySlowPostControls\": true\n  },\n  \"filePaths\": [\n    \"/*\"\n  ],\n  \"hostnames\": [\n    \"www.schrodingerstudios.com\"\n  ],\n  \"isNegativeFileExtensionMatch\": false,\n  \"isNegativePathMatch\": false,\n  \"securityPolicy\": {\n    \"policyId\": \"ss01_103101\"\n  },\n  \"sequence\": 1,\n  \"targetId\": 2691433\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify match target order | NOT WORKING",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c24c9ee8-3121-4556-82c4-bc613d64a4db",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"website\",\n    \"targetSequence\": [\n        {\n            \"targetId\": 1217289,\n            \"sequence\": 1\n        },\n        {\n            \"targetId\": 1217339,\n            \"sequence\": 2\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets/sequence",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets",
+								"sequence"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a match target",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c5656f7-aabe-4332-aea8-5e88eed2a7a8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets/{{targetId}}?includeChildObjectName",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets",
+								"{{targetId}}"
+							],
+							"query": [
+								{
+									"key": "includeChildObjectName",
+									"value": null,
+									"description": "includeChildObjectName\tBoolean\ttrue\tSpecify whether to return the object name in the payload."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a match target | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f2d09fd-142b-4edd-9a06-22c1710acf9a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"website\",\n  \"bypassNetworkLists\": [\n    {\n      \"id\": \"80865_SECURITYBYPASSLIST\",\n      \"name\": \"Security Bypass List\"\n    }\n  ],\n  \"configId\": 59595,\n  \"configVersion\": 1,\n  \"defaultFile\": \"NO_MATCH\",\n  \"effectiveSecurityControls\": {\n    \"applyApplicationLayerControls\": true,\n    \"applyNetworkLayerControls\": true,\n    \"applyRateControls\": true,\n    \"applySlowPostControls\": true\n  },\n  \"filePaths\": [\n    \"/*\"\n  ],\n  \"hostnames\": [\n    \"www.schrodingerstudios.com\"\n  ],\n  \"isNegativeFileExtensionMatch\": false,\n  \"isNegativePathMatch\": true,\n  \"securityPolicy\": {\n    \"policyId\": \"ss01_103101\"\n  },\n  \"sequence\": 2,\n  \"targetId\": 2817534\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets/{{targetId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets",
+								"{{targetId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a match target",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88b3330d-f851-445f-8402-2f017e7ea7db",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/match-targets/{{targetId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"match-targets",
+								"{{targetId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Activations",
+			"item": [
+				{
+					"name": "Activate a configuration version | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60622b06-c02c-4225-b2fe-d24333d27d73",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"ACTIVATE\",\n    \"network\": \"{{network}}\",\n    \"note\": \"{{notes}}\",\n    \"notificationEmails\": [\n        \"{{email}}\"\n    ],\n    \"activationConfigs\": [\n        {\n            \"configId\": {{configId}},\n            \"configVersion\": {{versionNumber}}\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/activations",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"activations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an activation request status | NOT WORKING | statusId is never shared in Activation POST",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6ba4b981-8610-4a87-962f-1113dd64046a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/activations/status/516381",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"activations",
+								"status",
+								"516381"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get activation status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1070e44b-3d09-4152-a538-818a7a261de0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}//appsec/v1/activations/{{activationId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"",
+								"appsec",
+								"v1",
+								"activations",
+								"{{activationId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Rate Policies (BETA)",
+			"item": [
+				{
+					"name": "List rate policies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e09595d-ba8d-4c86-85e2-28a99cb958f1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/rate-policies",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"rate-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a rate policy | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b03d6810-e7f1-45b4-a704-06c8bf47df50",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"matchType\": \"path\",\n    \"type\": \"WAF\",\n    \"name\": \"Test_Paths 2\",\n    \"description\": \"AFW Test Extensions\",\n    \"averageThreshold\": 5,\n    \"burstThreshold\": 10,\n    \"clientIdentifier\": \"ip\",\n    \"useXForwardForHeaders\": true,\n    \"requestType\": \"ClientRequest\",\n    \"sameActionOnIpv6\": false,\n    \"path\": {\n        \"positiveMatch\": true,\n        \"values\": [\n            \"/login/\",\n            \"/path/\"\n        ]\n    },\n    \"pathMatchType\": \"Custom\",\n    \"pathUriPositiveMatch\": true,\n    \"fileExtensions\": {\n        \"positiveMatch\": false,\n        \"values\": [\n            \"3g2\",\n            \"3gp\",\n            \"aif\",\n            \"aiff\",\n            \"au\",\n            \"avi\",\n            \"bin\",\n            \"bmp\",\n            \"cab\"\n        ]\n    },\n    \"hostnames\": [\n        \"www.ludin.org\"\n    ],\n    \"additionalMatchOptions\": [\n        {\n            \"positiveMatch\": true,\n            \"type\": \"IpAddressCondition\",\n            \"values\": [\n                \"198.129.76.39\"\n            ]\n        },\n        {\n            \"positiveMatch\": true,\n            \"type\": \"RequestMethodCondition\",\n            \"values\": [\n                \"GET\"\n            ]\n        }\n    ],\n    \"queryParameters\": [\n        {\n            \"name\": \"productId\",\n            \"values\": [\n                \"BUB_12\",\n                \"SUSH_11\"\n            ],\n            \"positiveMatch\": true,\n            \"valueInRange\": false\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/rate-policies/{{ratePolicyId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"rate-policies",
+								"{{ratePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a rate policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cfe2bd4f-6ed0-4735-a60a-67141c27ba18",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/rate-policies/{{ratePolicyId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"rate-policies",
+								"{{ratePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a rate policy | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35c1e8cd-bf49-4646-b1fc-a958e469a9d0",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2234,\n    \"matchType\": \"path\",\n    \"type\": \"WAF\",\n    \"name\": \"Test_Paths 2\",\n    \"description\": \"AFW Test Extensions\",\n    \"averageThreshold\": 5,\n    \"burstThreshold\": 10,\n    \"clientIdentifier\": \"ip\",\n    \"useXForwardForHeaders\": true,\n    \"requestType\": \"ClientRequest\",\n    \"sameActionOnIpv6\": false,\n    \"path\": {\n        \"positiveMatch\": true,\n        \"values\": [\n            \"/login/\",\n            \"/path/\"\n        ]\n    },\n    \"pathMatchType\": \"Custom\",\n    \"pathUriPositiveMatch\": true,\n    \"fileExtensions\": {\n        \"positiveMatch\": false,\n        \"values\": [\n            \"3g2\",\n            \"3gp\",\n            \"aif\",\n            \"aiff\",\n            \"au\",\n            \"avi\",\n            \"bin\",\n            \"bmp\",\n            \"cab\"\n        ]\n    },\n    \"hostnames\": [\n        \"www.ludin.org\"\n    ],\n    \"additionalMatchOptions\": [\n        {\n            \"positiveMatch\": true,\n            \"type\": \"IpAddressCondition\",\n            \"values\": [\n                \"198.129.76.39\"\n            ]\n        },\n        {\n            \"positiveMatch\": true,\n            \"type\": \"RequestMethodCondition\",\n            \"values\": [\n                \"GET\"\n            ]\n        }\n    ],\n    \"queryParameters\": [\n        {\n            \"name\": \"productId\",\n            \"values\": [\n                \"BUB_12\",\n                \"SUSH_11\"\n            ],\n            \"positiveMatch\": true,\n            \"valueInRange\": false\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/rate-policies/{{ratePolicyId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"rate-policies",
+								"{{ratePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a rate policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6e2a9d24-752f-4431-9969-a3bd8d182e75",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/rate-policies/{{ratePolicyId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"rate-policies",
+								"{{ratePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List rate policy actions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c753f303-fd09-49a3-9d6f-07331f59f6ae",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rate-policies",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rate-policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a rate policy action | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19d94c2b-f29b-43b9-9788-2f3993f8503a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ipv4Action\": \"alert\",\n    \"ipv6Action\": \"alert\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rate-policies/{{ratePolicyId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rate-policies",
+								"{{ratePolicyId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Slow POST Settings (BETA)",
+			"item": [
+				{
+					"name": "Get Slow POST protection settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d0effe9-f0c3-4158-91a6-913766f2c49c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/slow-post",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"slow-post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify slow POST protection settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9caf22e-3624-4315-923f-1f705bd57db7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/slow-post",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"slow-post"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Web Application Firewall Settings (BETA)",
+			"item": [
+				{
+					"name": "Get the current mode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f482334f-eaf6-45ba-b4ca-ae6717c12257",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/mode",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"mode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify the rule-set mode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44614d6a-f568-44a1-9695-880dc0577299",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/mode",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"mode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List attack groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "61083089-31a5-4986-b6ef-2b49c1430660",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/attack-groups",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"attack-groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an attack group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d885147d-ee85-4c04-b0de-58fd5c7f5148",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/attack-groups/{{attackGroupId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"attack-groups",
+								"{{attackGroupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify the action for an attack group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78104d89-c819-4732-b4f9-1b5b5038afdd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/attack-groups/{{attackGroupId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"attack-groups",
+								"{{attackGroupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the attack group's conditions and exceptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a162cd52-4741-4b48-ab39-5dee764fcb87",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/attack-groups/{{attackGroupId}}/condition-exception",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"attack-groups",
+								"{{attackGroupId}}",
+								"condition-exception"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the attack group's conditions and exceptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78aecfd0-e9d8-4f1e-aabf-2c39b29dcafe",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/attack-groups/{{attackGroupId}}/condition-exception",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"attack-groups",
+								"{{attackGroupId}}",
+								"condition-exception"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the actions for a rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "eee7f8e0-ab48-458f-b1c4-96be0968d7ee",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade to latest rule set version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9ce97a72-04f4-49c4-b377-62fd3a058756",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"upgrade\": true\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List upgrade details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fed80b2a-3077-488e-8211-90c615ba7ff3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules/upgrade-details",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules",
+								"upgrade-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a rule's action",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6ea5a88-b376-4c3f-996f-2e00dc29e5c9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules/{{ruleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a rule's action",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3c01f096-fa87-4f88-92dc-2c85d5e0567b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"{{ruleAction}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules/{{ruleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the rule conditions and exceptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24633a02-a2e3-471e-bdd4-c588275eceab",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}//appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules/{{ruleId}}/conditions-exceptions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"",
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}",
+								"conditions-exceptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify the conditions and exceptions of a rule | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2642a17b-f22b-4864-b229-eaf268eb50d4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"conditions\": [\n        {\n            \"type\": \"extensionMatch\",\n            \"extensions\": [\n                \"test\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"filenameMatch\",\n            \"filenames\": [\n                \"test2\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"hostMatch\",\n            \"hosts\": [\n                \"www.test.com\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"ipMatch\",\n            \"ips\": [\n                \"123.123.123.123\"\n            ],\n            \"positiveMatch\": true,\n            \"useHeaders\": true\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"caseSensitive\": true,\n            \"name\": \"test3\",\n            \"nameCase\": false,\n            \"positiveMatch\": true,\n            \"value\": \"test4\",\n            \"wildcard\": true\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"header\": \"referer\",\n            \"positiveMatch\": true,\n            \"value\": \"test5\",\n            \"valueCase\": false,\n            \"valueWildcard\": false\n        },\n        {\n            \"type\": \"requestMethodMatch\",\n            \"methods\": [\n                \"GET\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"pathMatch\",\n            \"paths\": [\n                \"/test6\"\n            ],\n            \"positiveMatch\": true\n        }\n    ],\n    \"exception\": {\n        \"headerCookieOrParamValues\": [\n            \"test\"\n        ],\n        \"specificHeaderCookieOrParamNameValue\": {\n            \"name\": \"test\",\n            \"selector\": \"REQUEST_HEADERS\",\n            \"value\": \"test\"\n        },\n        \"specificHeaderCookieOrParamNames\": [\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"REQUEST_HEADERS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"REQUEST_COOKIES\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"ARGS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"JSON_PAIRS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"XML_PAIRS\"\n            }\n        ],\n        \"specificHeaderCookieOrParamPrefix\": {\n            \"prefix\": \"test\",\n            \"selector\": \"REQUEST_HEADERS\"\n        }\n    }\n}\nParameter\tType\tSample\tDescription\nURL path parameters\nconfigId\tInteger\t17027\tA unique identifier for each configuration.\nversionNumber\tInteger\t25\tA unique identifier for each version of a configuration.\npolicyId\tString\tboBF_19288\tA unique identifier for a security policy.\nruleId\tInteger\t699989\tA unique identifier for rule.\nStatus 200 application/json\n\nDownload schema: securityPolicySetConditionExceptionSuccess.json\n\nResponse body:\n\n{\n    \"conditions\": [\n        {\n            \"type\": \"extensionMatch\",\n            \"extensions\": [\n                \"test\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"filenameMatch\",\n            \"filenames\": [\n                \"test2\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"hostMatch\",\n            \"hosts\": [\n                \"www.test.com\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"ipMatch\",\n            \"ips\": [\n                \"123.123.123.123\"\n            ],\n            \"positiveMatch\": true,\n            \"useHeaders\": true\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"caseSensitive\": true,\n            \"name\": \"test3\",\n            \"nameCase\": false,\n            \"positiveMatch\": true,\n            \"value\": \"test4\",\n            \"wildcard\": true\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"header\": \"referer\",\n            \"positiveMatch\": true,\n            \"value\": \"test5\",\n            \"valueCase\": false,\n            \"valueWildcard\": false\n        },\n        {\n            \"type\": \"requestMethodMatch\",\n            \"methods\": [\n                \"GET\"\n            ],\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"pathMatch\",\n            \"paths\": [\n                \"/test6\"\n            ],\n            \"positiveMatch\": true\n        }\n    ],\n    \"exception\": {\n        \"headerCookieOrParamValues\": [\n            \"test\"\n        ],\n        \"specificHeaderCookieOrParamNameValue\": {\n            \"name\": \"test\",\n            \"selector\": \"REQUEST_HEADERS\",\n            \"value\": \"test\"\n        },\n        \"specificHeaderCookieOrParamNames\": [\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"REQUEST_HEADERS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"REQUEST_COOKIES\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"ARGS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"JSON_PAIRS\"\n            },\n            {\n                \"names\": [\n                    \"test\"\n                ],\n                \"selector\": \"XML_PAIRS\"\n            }\n        ],\n        \"specificHeaderCookieOrParamPrefix\": {\n            \"prefix\": \"test\",\n            \"selector\": \"REQUEST_HEADERS\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/rules/{{ruleId}}/conditions-exceptions",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}",
+								"conditions-exceptions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Custom Rules Builder (BETA)",
+			"item": [
+				{
+					"name": "List custom rules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5667eda6-e42f-4907-827d-ea4adf95360e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/custom-rules",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"custom-rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a custom rule | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "106f4939-f65f-46ba-96e2-9308318cfda3",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Rule\",\n    \"description\": \"Can I create all conditions?\",\n    \"tag\": [\n        \"test\"\n    ],\n    \"conditions\": [\n        {\n            \"type\": \"requestMethodMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"GET\",\n                \"CONNECT\",\n                \"TRACE\",\n                \"PUT\",\n                \"POST\",\n                \"OPTIONS\",\n                \"DELETE\",\n                \"HEAD\"\n            ]\n        },\n        {\n            \"type\": \"pathMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"/H\",\n                \"/Li\",\n                \"/He\"\n            ]\n        },\n        {\n            \"type\": \"extensionMatch\",\n            \"positiveMatch\": true,\n            \"valueWildcard\": true,\n            \"valueCase\": true,\n            \"value\": [\n                \"Li\",\n                \"He\",\n                \"H\"\n            ]\n        },\n        {\n            \"type\": \"filenameMatch\",\n            \"positiveMatch\": true,\n            \"valueWildcard\": false,\n            \"valueCase\": false,\n            \"value\": [\n                \"He\",\n                \"H\",\n                \"Li\"\n            ]\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"positiveMatch\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"nameWildcard\": true,\n            \"name\": [\n                \"H\",\n                \"He\"\n            ],\n            \"value\": [\n                \"Li\",\n                \"He\",\n                \"H\"\n            ]\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"positiveMatch\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"nameWildcard\": true,\n            \"name\": [\n                \"He\"\n            ],\n            \"value\": [\n                \"C\",\n                \"Be\",\n                \"B\"\n            ]\n        },\n        {\n            \"type\": \"headerOrderMatch\",\n            \"positiveMatch\": true,\n            \"value\": \"H:He\"\n        },\n        {\n            \"type\": \"cookieMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"H\",\n            \"nameWildcard\": true,\n            \"nameCase\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"value\": [\n                \"H\",\n                \"He\",\n                \"Li\"\n            ]\n        },\n        {\n            \"type\": \"cookieMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"Be\",\n            \"nameWildcard\": true,\n            \"nameCase\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"value\": [\n                \"O\",\n                \"N\",\n                \"C\"\n            ]\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"C\",\n            \"nameCase\": true,\n            \"nameWildcard\": true,\n            \"valueWildcard\": true,\n            \"valueCase\": true,\n            \"value\": [\n                \"Carbon\",\n                \"C\"\n            ]\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"N\",\n            \"nameCase\": false,\n            \"nameWildcard\": false,\n            \"valueWildcard\": false,\n            \"valueCase\": false,\n            \"value\": [\n                \"Nitrogen\",\n                \"N\"\n            ]\n        },\n        {\n            \"type\": \"argsPostMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"H\",\n            \"value\": [\n                \"H\",\n                \"Hydrogen\"\n            ]\n        },\n        {\n            \"type\": \"argsPostMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"He\",\n            \"value\": [\n                \"He\",\n                \"Helium\"\n            ]\n        },\n        {\n            \"type\": \"argsPostNamesMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"Carbon\",\n                \"Oxygen\",\n                \"Nitrogen\",\n                \"Chlorine\"\n            ]\n        },\n        {\n            \"type\": \"clientCertPresentMatch\",\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"clientCertValidMatch\",\n            \"positiveMatch\": false\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/custom-rules",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"custom-rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a custom rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e270e2e-5855-4caf-aa04-a40f394beba8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/custom-rules/{{customRuleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"custom-rules",
+								"{{customRuleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a custom rule | BODY NOT UPDATED",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17543303-358c-4d9b-8afe-4761e9d9acd4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test Rule\",\n    \"description\": \"Can I create all conditions?\",\n    \"tag\": [\n        \"test\"\n    ],\n    \"conditions\": [\n        {\n            \"type\": \"requestMethodMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"GET\",\n                \"CONNECT\",\n                \"TRACE\",\n                \"PUT\",\n                \"POST\",\n                \"OPTIONS\",\n                \"DELETE\",\n                \"HEAD\"\n            ]\n        },\n        {\n            \"type\": \"pathMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"/H\",\n                \"/Li\",\n                \"/He\"\n            ]\n        },\n        {\n            \"type\": \"extensionMatch\",\n            \"positiveMatch\": true,\n            \"valueWildcard\": true,\n            \"valueCase\": true,\n            \"value\": [\n                \"Li\",\n                \"He\",\n                \"H\"\n            ]\n        },\n        {\n            \"type\": \"filenameMatch\",\n            \"positiveMatch\": true,\n            \"valueWildcard\": false,\n            \"valueCase\": false,\n            \"value\": [\n                \"He\",\n                \"H\",\n                \"Li\"\n            ]\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"positiveMatch\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"nameWildcard\": true,\n            \"name\": [\n                \"H\",\n                \"He\"\n            ],\n            \"value\": [\n                \"Li\",\n                \"He\",\n                \"H\"\n            ]\n        },\n        {\n            \"type\": \"requestHeaderMatch\",\n            \"positiveMatch\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"nameWildcard\": true,\n            \"name\": [\n                \"He\"\n            ],\n            \"value\": [\n                \"C\",\n                \"Be\",\n                \"B\"\n            ]\n        },\n        {\n            \"type\": \"headerOrderMatch\",\n            \"positiveMatch\": true,\n            \"value\": \"H:He\"\n        },\n        {\n            \"type\": \"cookieMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"H\",\n            \"nameWildcard\": true,\n            \"nameCase\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"value\": [\n                \"H\",\n                \"He\",\n                \"Li\"\n            ]\n        },\n        {\n            \"type\": \"cookieMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"Be\",\n            \"nameWildcard\": true,\n            \"nameCase\": true,\n            \"valueCase\": true,\n            \"valueWildcard\": true,\n            \"value\": [\n                \"O\",\n                \"N\",\n                \"C\"\n            ]\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"C\",\n            \"nameCase\": true,\n            \"nameWildcard\": true,\n            \"valueWildcard\": true,\n            \"valueCase\": true,\n            \"value\": [\n                \"Carbon\",\n                \"C\"\n            ]\n        },\n        {\n            \"type\": \"uriQueryMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"N\",\n            \"nameCase\": false,\n            \"nameWildcard\": false,\n            \"valueWildcard\": false,\n            \"valueCase\": false,\n            \"value\": [\n                \"Nitrogen\",\n                \"N\"\n            ]\n        },\n        {\n            \"type\": \"argsPostMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"H\",\n            \"value\": [\n                \"H\",\n                \"Hydrogen\"\n            ]\n        },\n        {\n            \"type\": \"argsPostMatch\",\n            \"positiveMatch\": true,\n            \"name\": \"He\",\n            \"value\": [\n                \"He\",\n                \"Helium\"\n            ]\n        },\n        {\n            \"type\": \"argsPostNamesMatch\",\n            \"positiveMatch\": true,\n            \"value\": [\n                \"Carbon\",\n                \"Oxygen\",\n                \"Nitrogen\",\n                \"Chlorine\"\n            ]\n        },\n        {\n            \"type\": \"clientCertPresentMatch\",\n            \"positiveMatch\": true\n        },\n        {\n            \"type\": \"clientCertValidMatch\",\n            \"positiveMatch\": false\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/custom-rules/{{customRuleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"custom-rules",
+								"{{customRuleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove a custom rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a1090ab-6550-42d3-bf10-d1db5435a67c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/custom-rules/{{customRuleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"custom-rules",
+								"{{customRuleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List custom rule actions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0972ac0f-a32e-4f7d-9e4b-a20f9276ce75",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/custom-rules",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"custom-rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify a custom rule action",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "204caf3a-2a54-4728-b28d-af7469361234",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "edgegrid",
+							"edgegrid": [
+								{
+									"key": "clientSecret",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "clientToken",
+									"value": "{{client_token}}",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "{{access_token}}",
+									"type": "string"
+								},
+								{
+									"key": "baseURL",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"{{ruleAction}}\"\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}/appsec/v1/configs/{{configId}}/versions/{{versionNumber}}/security-policies/{{policyId}}/custom-rules/{{customRuleId}}",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"appsec",
+								"v1",
+								"configs",
+								"{{configId}}",
+								"versions",
+								"{{versionNumber}}",
+								"security-policies",
+								"{{policyId}}",
+								"custom-rules",
+								"{{customRuleId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
