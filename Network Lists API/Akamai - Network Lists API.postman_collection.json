@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "e3e2bc8b-ad34-4bc7-aab6-9a4ee9bfcfdd",
+		"name": "Akamai | Network Lists API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List network lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists"
+					],
+					"query": [
+						{
+							"key": "includeElements",
+							"value": "false",
+							"description": "includeElements\tBoolean\ttrue\tIf enabled, the response list includes all items. For large network lists, this may slow responses and yield large response objects. The default false value when listing more than one network list omits the network list’s elements and only provides higher-level metadata.",
+							"disabled": true
+						},
+						{
+							"key": "extended",
+							"value": "false",
+							"description": "extended\tBoolean\ttrue\tWhen enabled, provides additional response data identifying who created and updated the list and when, and the network list’s deployment status in both STAGING and PRODUCTION environments. This data takes longer to provide.",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "",
+							"description": "search\tString\t192.168.\tOnly list items that match the specified substring in any network list’s name or list of items.",
+							"disabled": true
+						},
+						{
+							"key": "listType",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new network list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{networkListName}}\",\n    \"type\": \"IP\",\n    \"description\": \"{{networkListDescription}}\",\n    \"list\": [{{networkListIPs}}]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a network list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}"
+					],
+					"query": [
+						{
+							"key": "includeElements",
+							"value": "false",
+							"description": "includeElements\tBoolean\ttrue\tIf enabled, the response list includes all items. For large network lists, this may slow responses and yield large response objects. The default true value includes the list’s contents.\n",
+							"disabled": true
+						},
+						{
+							"key": "extended",
+							"value": "false",
+							"description": "extended\tBoolean\ttrue\tWhen enabled, provides additional response data identifying who created and updated the list and when, and the network list’s deployment status in both STAGING and PRODUCTION environments. This data takes longer to provide.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a network list",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{networkListName}}\",\n    \"type\": \"IP\",\n    \"description\": \"{{networkListDescription}}\",\n    \"syncPoint\": {{syncPoint}},\n    \"list\": [{{networkListIPs}}]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}"
+					],
+					"query": [
+						{
+							"key": "includeElements",
+							"value": "false",
+							"description": "includeElements\tBoolean\ttrue\tIf enabled, the response list includes all items. For large network lists, this may slow responses and yield large response objects. The default true value includes the list’s contents.\n",
+							"disabled": true
+						},
+						{
+							"key": "extended",
+							"value": "false",
+							"description": "extended\tBoolean\ttrue\tWhen enabled, provides additional response data identifying who created and updated the list and when, and the network list’s deployment status in both STAGING and PRODUCTION environments. This data takes longer to provide.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a network list",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an element",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{networkListName}}\",\n    \"type\": \"IP\",\n    \"description\": \"{{networkListDescription}}\",\n    \"syncPoint\": {{syncPoint}},\n    \"list\": [{{networkListIPs}}]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/elements?element={{elementId}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"elements"
+					],
+					"query": [
+						{
+							"key": "element",
+							"value": "{{elementId}}",
+							"description": "Adds the specified element to the list. If the network list’s type is IP, the value needs to be a URL-encoded IP address or CIDR block. If the type is GEO, it’s a two-character country code"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove an element",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{networkListName}}\",\n    \"type\": \"IP\",\n    \"description\": \"{{networkListDescription}}\",\n    \"syncPoint\": {{syncPoint}},\n    \"list\": [{{networkListIPs}}]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/elements?element={{elementId}}",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"elements"
+					],
+					"query": [
+						{
+							"key": "element",
+							"value": "{{elementId}}",
+							"description": "Removes the specified element to the list. If the network list’s type is IP, the value needs to be a URL-encoded IP address or CIDR block. If the type is GEO, it’s a two-character country code"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate a network list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comments\": \"{{activationComments}}\",\n    \"notificationRecipients\": [\n        \"{{activationEmail}}\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/environments/{{environment}}/activate",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"environments",
+						"{{environment}}",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get activation status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/environments/{{environment}}/status",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"environments",
+						"{{environment}}",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get an activation’s snapshot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/sync-points/{{syncPoint}}/history",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"sync-points",
+						"{{syncPoint}}",
+						"history"
+					],
+					"query": [
+						{
+							"key": "extended",
+							"value": "false",
+							"description": "extended\tBoolean\ttrue\tWhen enabled, provides additional response data identifying who created and updated the list and when, and the network list’s deployment status in both STAGING and PRODUCTION environments. This data takes longer to provide.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update network list details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{networkListName}}\",\n    \"description\": \"{{networkListDescription}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/network-lists/{{networkListId}}/details",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"network-lists",
+						"{{networkListId}}",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to network lists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipients\": [\n        \"{{subscribeEmail}}\"\n    ],\n    \"uniqueIds\": [\n        \"{{networkListId}}\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/notifications/subscribe",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"notifications",
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsubscribe to network lists",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"recipients\": [\n        \"{{subscribeEmail}}\"\n    ],\n    \"uniqueIds\": [\n        \"{{networkListId}}\"\n    ]\n}"
+				},
+				"url": {
+					"raw": "https://{{host}}/network-list/v2/notifications/unsubscribe",
+					"protocol": "https",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"network-list",
+						"v2",
+						"notifications",
+						"unsubscribe"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "edgegrid",
+		"edgegrid": [
+			{
+				"key": "clientSecret",
+				"value": "{{client_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientToken",
+				"value": "{{client_token}}",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "{{access_token}}",
+				"type": "string"
+			},
+			{
+				"key": "baseURL",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
